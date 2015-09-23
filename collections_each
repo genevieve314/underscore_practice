@@ -1,0 +1,16 @@
+//practice building the underscore each method
+
+function each (collection, callback, start){
+  if(typeof collection === array){
+    for(var i=0; i<collection.length; i++){
+      collection[i] = callback(collection[i]);
+      } 
+  } else {
+      for(var item in collection){
+      collection.item = callback(collection.item);
+      }
+  }
+  return collection;
+}
+
+
