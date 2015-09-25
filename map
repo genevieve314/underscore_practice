@@ -13,3 +13,14 @@ function map (collection, callback){
     }
     return newArray;
 }
+
+
+//building map using the each function
+
+function map (collection, callback){
+    var newArray = [];
+    each(collection, function(thing){
+    newArray.push(callback(thing));
+    })
+    return newArray;
+};
