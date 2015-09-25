@@ -1,0 +1,23 @@
+//building the reduce method
+function reduce (collection, callback, start){
+    var result = start;
+    if(collection.constructor === Array){
+        for(var i=0 ; i<collection.length ; i++){
+            result = callback(collection[i], result);
+       }
+    } else if (collection.constructor === Object){
+        for(var item in collection){
+            result = callback(collection[item], result);
+        }
+    }
+    return result;
+}
+
+//building reduce using each
+function reduce (collection, callback, start){
+    var result = start;
+    each(collection, function(num){
+        result = callback(num, result);
+    });
+    return result;
+}
