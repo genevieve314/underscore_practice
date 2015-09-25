@@ -1,0 +1,18 @@
+//wip
+
+function find(collection, predicate, start){
+    each(collection, function(item){
+        if(predicate(collection[item])){
+            return collection[item];
+        } else {
+            return undefined;
+        }
+    });
+}
+
+var obj = {one: 1, two: 2, three: 3, four: 4};
+var arr = [1,2,3,4];
+
+find(obj, function(val){
+    return 3 === val;
+});
