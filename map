@@ -1,0 +1,15 @@
+//building the map function for collections
+
+function map (collection, callback){
+    var newArray = [];
+    if(collection.constructor === Array){
+        for(var i=0 ; i<collection.length ; i++){
+            newArray.push(callback(collection[i]));
+        }
+    }else if (collection.constructor === Object){
+        for(var item in collection){
+             newArray.push(callback(collection[item]));
+        }
+    }
+    return newArray;
+}
