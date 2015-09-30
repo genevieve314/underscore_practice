@@ -1,0 +1,26 @@
+//each - again just for good measure
+var each = function(collection, callback, context){
+    if(collection.constructor === Array){
+        for(var i=0 ; i<collection.length ; i++){
+            collection[i] = callback(collection[i], context);
+        }
+    } else {
+        for(var item in collection){
+            collection[item] = callback(collection[item], context);
+        }
+    }
+    
+    return collection;
+};
+
+//filter using each
+var filter = function(collection, predicate){
+    var newArray = [];
+    each(collection, function(thing){
+        if(predicate(collection[thing])){
+            newArray.push(collection[thing]);
+        }
+    });
+    
+    return newArray;
+};
