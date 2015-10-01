@@ -1,0 +1,37 @@
+//am getting inconsistent results with the below, but am really not sure why!
+//each
+function each (collection, callback, context){
+    if(collection.constructor === Array){
+        for(var i=0 ; i<collection.length ; i++){
+            collection[i] = callback(collection[i]);
+        }
+    } else {
+        for(var item in collection){
+            collection[item] = callback(collection[item]);
+        }
+    }
+    return collection;   
+}
+
+//reject
+function reject(collection, predicate, context){
+    var newArray = [];
+    each(collection, function(thing){
+        if(!predicate(collection[thing])){
+            newArray.push(collection[thing]);
+        }
+    });
+    return newArray;
+}
+
+function isEven(num){
+    if(num%2 === 0){
+        return true;
+    }else if(num%2 !== 0){
+        return false;
+    }
+}
+
+var nums = [1,2,3,4,5,6];
+
+reject(nums, isEven);
